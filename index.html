@@ -1,2 +1,49 @@
-dikshya sapkota
-SAPKOTA DIBASH
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Odd - Even </title>
+    <style>
+        #div div {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+</body>
+<script>
+    let i = 0;
+    // function declairation
+    function checkOdd_Even() {
+        i++;
+        const input = (prompt('Enter a Number'));
+        const a = parseInt(input);
+
+        const div = document.getElementById("div");
+
+        if (input === null || input.length === 0) {
+            div.innerHTML = "<div>" + i + ". Prompt Canceled </div>" + div.innerHTML;
+        } else if (isNaN(a)) {
+            div.innerHTML = "<div>" + i + ". Invalid Number Entered - <strong>" + input + "</strong> is Not valid.</div>" + div.innerHTML;
+        } else if (a % 2 === 0) {
+            div.innerHTML = "<div>" + i + ".  <strong>" + a + "</strong> is Even Number.</div>" + div.innerHTML;
+        } else {
+            div.innerHTML = "<div>" + i + ".  <strong>" + a + "</strong> is Odd Number.</div>" + div.innerHTML;
+        }
+
+    }
+
+    // function Call
+    checkOdd_Even();
+
+
+    //adding event listener
+    document.getElementById('div').addEventListener('click', checkOdd_Even)
+</script>
+
+</html>
