@@ -1,49 +1,2232 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>dibash TV</title>
+		<link href="./index.css" rel="stylesheet">
+		<script src="./video.js"></script>
+		<script src="../video2.js"></script>
+		<script type="text/javascript" src="./jquery.js"></script>
+		<script type="text/javascript" src="./layout.js"></script>
+		<style>
+			body{
+				background: #222;
+			}
+			.chlist{
+				clear: both;
+			}
+			.chindividual{
+				text-align: center;
+				float: left;
+				display: block;
+				width: 128px;
+				margin: 0;
+				padding: 0;
+				height: 150px;
+			}
+			.chindividual img{
+				width: 128px;
+				display: block;
+			}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Odd - Even </title>
-    <style>
-        #div div {
-            cursor: pointer;
-        }
-    </style>
-</head>
+			.chindividual a{
+				color: white;
+				text-decoration: none;
+				font-family: monospace;
+			}
+			.playerc{
+				margin: 5px auto; width: 800px; height: 450px;
+			}
+			.playerc a{
+				display: block; width: 800px; height: 450px;
+			}
+			.playerc_t{
+				width: 622px;
+				height: 350px;
+				position: fixed;
+				bottom: 5px;
+				right: 5px;
+				z-index:1000;
+			}
+			.playerc_t a{
+				display: block;
+				width: 622px;
+				height: 350px;
+			}
+		</style>
+	</head>
+	<body id="plugins_httpstreamingm3u8">
+		<div id="wrap">
+			<div id="content">
+				<div style="position:fixed; right: 10px; z-index:1000;">
+					<button id="toggle" style="border-radius: 10px; padding: 10px; background: white;">Toggle</button>
+					<input id="channelFilter" placeholder="Quick Filter" style="width: 250px; height: 20px; border-radius: 10px; padding: 10px;">
+				</div>
+				<div class="playerc" id="pcontainer">
+				<!-- player container-->
+					<a id="player">
+						<video id="video" class="video-js" autobuffer controls autoplay muted height="450" width="660"></video>
+					</a><!-- Flowplayer installation and configuration -->
+				</div>
+				<ul class="chlist">
+										<li class="chindividual">
+						<a href="#" data-id="516" class="channels" data-name="kantipur hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Kantipur_HD_2021-05-03_10:05:22.png">
+							<span>Kantipur HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="836" class="channels" data-name="ap1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/AP1_HD_2021-05-03_10:05:59.png">
+							<span>AP1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="238" class="channels" data-name="himalaya tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Himalaya_TV_HD_2021-05-03_10:05:55.png">
+							<span>Himalaya TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="225" class="channels" data-name="nepal tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nepal_TV_HD_2021-05-03_11:05:44.png">
+							<span>Nepal TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="265" class="channels" data-name="ntv news hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NTV_News_HD_2021-05-03_11:05:04.png">
+							<span>NTV News HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="262" class="channels" data-name="ntv plus hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NTV_Plus_HD_2021-05-03_11:05:27.png">
+							<span>NTV Plus HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="778" class="channels" data-name="prime times hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Prime_Times_2020-10-02_06:10:33.png">
+							<span>Prime Times HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1312" class="channels" data-name="makalu tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Makalu_TV_HD_2021-01-31_07:01:58.jpg">
+							<span>Makalu TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="429" class="channels" data-name="janata hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Janata_HD_2021-05-03_11:05:25.png">
+							<span>Janata HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="235" class="channels" data-name="mountain tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Mountain_TV_HD_2022-03-10_10:03:26.png">
+							<span>Mountain TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1330" class="channels" data-name="galaxy 4k">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Galaxy_4K_2021-06-01_02:06:48.jpg">
+							<span>Galaxy 4K</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1318" class="channels" data-name="kantipur max hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Kantipur_Max_HD_2024-01-01_05:01:02.png">
+							<span>Kantipur Max HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1238" class="channels" data-name="metv | hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/METV_2020-11-01_03:11:03.jpg">
+							<span>METV | HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1162" class="channels" data-name="ntv itahari hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NTV_Itahari_HD_2020-08-23_08:08:37.png">
+							<span>NTV Itahari HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="578" class="channels" data-name="ntv kohalpur hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NTV_Kohalpur_HD_2021-05-03_11:05:21.png">
+							<span>NTV Kohalpur HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1045" class="channels" data-name="yoho tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Yoho_TV_HD_2022-03-10_10:03:53.png">
+							<span>Yoho TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="422" class="channels" data-name="business plus hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Business_Plus_HD_2022-03-10_10:03:20.png">
+							<span>Business Plus HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1297" class="channels" data-name="global tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Global_TV_2022-03-10_10:03:47.png">
+							<span>Global TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="237" class="channels" data-name="news 24">
+							<img src="https://nettv1.nettv.com.np//channel_logo/News_24_2021-05-03_11:05:54.png">
+							<span>News 24</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="587" class="channels" data-name="image hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Image_Channel_2021-09-13_10:09:42.jpg">
+							<span>Image HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="226" class="channels" data-name="sagarmatha tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sagarmatha_TV_2021-05-03_11:05:18.png">
+							<span>Sagarmatha TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="590" class="channels" data-name="abc news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ABC_NEWS_2021-05-03_11:05:24.png">
+							<span>ABC NEWS</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="224" class="channels" data-name="avenues tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Avenues_TV_2021-05-03_11:05:44.png">
+							<span>Avenues TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="454" class="channels" data-name="tv today hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TV_Today_HD_2021-10-21_09:10:05.png">
+							<span>TV Today HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="288" class="channels" data-name="btv business">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BTV_Business_2022-03-10_10:03:58.png">
+							<span>BTV Business</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="263" class="channels" data-name="nari hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nari_HD_2023-07-07_10:07:58.jpeg">
+							<span>Nari HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1357" class="channels" data-name="him shikhar tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Him_Shikhar_TV_2021-09-20_06:09:29.png">
+							<span>Him Shikhar TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1396" class="channels" data-name="space 4k">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Space_4K_2023-04-16_09:04:03.png">
+							<span>Space 4K</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1389" class="channels" data-name="himalaya premium hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Himalaya_Premium_HD_2022-11-03_05:11:49.jpg">
+							<span>Himalaya Premium HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1361" class="channels" data-name="bm hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BM_HD_2021-12-17_10:12:50.png">
+							<span>BM HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="543" class="channels" data-name="health television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Health_Television_2018-01-19_05:01:58.png">
+							<span>HEALTH TELEVISION</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1206" class="channels" data-name="विद्यालय शिक्षा">
+							<img src="https://nettv1.nettv.com.np//channel_logo/School_Education_HD_2020-06-14_03:06:33.jpg">
+							<span>विद्यालय शिक्षा</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="481" class="channels" data-name="bodhi tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bodhi_TV_HD_2021-05-03_11:05:28.png">
+							<span>Bodhi TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="472" class="channels" data-name="channel 4 nepal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Channel_4_Nepal_2021-05-03_11:05:59.png">
+							<span>Channel 4 Nepal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="453" class="channels" data-name="krishi tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Krishi_TV_HD_2021-05-03_11:05:27.png">
+							<span>Krishi TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="537" class="channels" data-name="kastamandap telivision">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Kastamandap_Telivision_2021-05-03_11:05:15.png">
+							<span>Kastamandap Telivision</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="525" class="channels" data-name="indegenous telivision">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Indegenous_Telivision_2021-05-03_11:05:41.png">
+							<span>Indegenous Telivision</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="790" class="channels" data-name="kalika hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/KALIKA_HD_2021-05-03_11:05:10.png">
+							<span>Kalika HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="584" class="channels" data-name="nice television hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NICE_TELEVISION_HD_2021-05-05_08:05:06.png">
+							<span>Nice Television HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="937" class="channels" data-name="life ok nepal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Life_Ok_Nepal_2021-05-05_07:05:27.png">
+							<span>Life Ok Nepal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="485" class="channels" data-name="mega tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Mega_TV_2022-03-10_10:03:02.png">
+							<span>Mega TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1063" class="channels" data-name="universal tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Universal_TV_HD_2022-07-25_06:07:19.png">
+							<span>Universal TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="799" class="channels" data-name="newa tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Newa_TV_2021-05-05_07:05:27.png">
+							<span>Newa TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="961" class="channels" data-name="bhadgaun television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bhadgaun_Television_2021-05-05_07:05:40.png">
+							<span>Bhadgaun Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="428" class="channels" data-name="nepal mandal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nepal_Mandal_2021-05-05_08:05:15.png">
+							<span>Nepal Mandal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1087" class="channels" data-name="everest tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Everest_Tv_HD_2021-01-21_05:01:23.png">
+							<span>Everest Tv HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1009" class="channels" data-name="mithila tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Mithila_TV_HD_2021-05-05_06:05:36.png">
+							<span>Mithila TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="769" class="channels" data-name="deuti hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Deuti_HD_2018-08-07_06:08:10.jpg">
+							<span>Deuti HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1105" class="channels" data-name="kisan tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Kisan_TV_2019-10-15_01:10:38.png">
+							<span>Kisan TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="949" class="channels" data-name="paryawaran tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Paryawaran_TV_2022-03-10_10:03:24.png">
+							<span>Paryawaran TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1036" class="channels" data-name="rajya television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Rajya_Television_2019-05-03_05:05:20.jpg">
+							<span>Rajya Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1196" class="channels" data-name="bagmati tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bagmati_TV_HD_2021-07-09_10:07:56.png">
+							<span>Bagmati TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1090" class="channels" data-name="news nepal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/News_Nepal_2021-05-03_11:05:04.png">
+							<span>News Nepal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1245" class="channels" data-name="araniko hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Araniko_HD_2021-05-03_11:05:55.png">
+							<span>Araniko HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1066" class="channels" data-name="education tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Education_TV_2022-03-10_10:03:01.png">
+							<span>Education TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1012" class="channels" data-name="rapti darpan hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Rapti_Darpan_HD_2021-05-05_06:05:56.png">
+							<span>Rapti Darpan HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1242" class="channels" data-name=" capital tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/_Capital_TV_HD_2022-03-10_10:03:23.png">
+							<span> Capital TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1279" class="channels" data-name="mukundasen hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/MUKUNDASEN_HD_2020-12-03_06:12:28.png">
+							<span>Mukundasen HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1270" class="channels" data-name="national gold">
+							<img src="https://nettv1.nettv.com.np//channel_logo/National_Gold_2020-11-13_07:11:05.jpg">
+							<span>National Gold</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1315" class="channels" data-name="jansanchar tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Jansanchar_TV_HD_2021-03-08_05:03:37.png">
+							<span>Jansanchar TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1027" class="channels" data-name="channel ace">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Channel_ACE_2021-05-03_11:05:57.png">
+							<span>Channel ACE</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="943" class="channels" data-name="fewa tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Fewa_Television_2019-01-21_06:01:52.jpg">
+							<span>Fewa TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="775" class="channels" data-name="arena tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARENA_TV_2021-05-05_08:05:06.png">
+							<span>Arena TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1117" class="channels" data-name="birat television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Birat_Television_2022-03-10_10:03:07.png">
+							<span>Birat Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="478" class="channels" data-name="appan tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Appan_TV_2021-05-05_08:05:33.png">
+							<span>Appan TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1107" class="channels" data-name="my tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/My_TV_2019-10-22_03:10:19.png">
+							<span>My TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1144" class="channels" data-name=" tv birgunj">
+							<img src="https://nettv1.nettv.com.np//channel_logo/_TV_BIRGUNJ_2020-01-03_03:01:53.jpg">
+							<span> TV Birgunj</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="850" class="channels" data-name="janakpur tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Janakpur_TV_2022-03-10_10:03:39.png">
+							<span>Janakpur TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="898" class="channels" data-name="tv today janakpur">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Tv_Today_Janakpur_2021-05-05_07:05:37.png">
+							<span>Tv Today Janakpur</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="910" class="channels" data-name="zee nepal tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Nepal_TV_2021-05-05_07:05:08.png">
+							<span>Zee Nepal TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1222" class="channels" data-name="tharu television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/THARU_TELEVISION_2020-07-11_10:07:20.jpg">
+							<span>Tharu Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="460" class="channels" data-name="times tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Times_TV_HD_2021-05-05_08:05:45.png">
+							<span>Times TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1212" class="channels" data-name="team tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TEAM_TV_2020-07-02_12:07:04.jpg">
+							<span>TEAM TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1211" class="channels" data-name="sajha tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/SAJHA_TV_2020-06-17_11:06:16.jpg">
+							<span>Sajha TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1048" class="channels" data-name="moonlight tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/MOONLIGHT_TV_2020-06-11_12:06:16.jpg">
+							<span>Moonlight TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="892" class="channels" data-name="namaste tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Namaste_TV_2018-12-02_04:12:39.jpg">
+							<span>Namaste TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="859" class="channels" data-name="buddha  tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Buddha__TV_2018-11-13_04:11:26.jpg">
+							<span>Buddha  TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="985" class="channels" data-name="bhairahawa tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bhairahawa_TV_2021-05-05_06:05:23.png">
+							<span>Bhairahawa TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1054" class="channels" data-name="tv 1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TV_1_HD_2022-03-10_10:03:03.png">
+							<span>TV 1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1132" class="channels" data-name="lumbini tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Lumbini_TV_HD_2021-05-03_11:05:56.png">
+							<span>Lumbini TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1273" class="channels" data-name="buddha awaaz">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BUDDHA_AWAAZ_2020-11-20_03:11:29.jpg">
+							<span>Buddha Awaaz</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1123" class="channels" data-name="samaya hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Samaya_HD_2019-12-18_12:12:32.png">
+							<span>Samaya HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1137" class="channels" data-name="suryodaya television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Suryodaya_2019-12-28_02:12:31.jpg">
+							<span>Suryodaya Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1327" class="channels" data-name="aam nepali tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Aam_Nepali_TV_HD_2021-05-04_02:05:28.png">
+							<span>Aam Nepali TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1333" class="channels" data-name="gnnhd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/GNNHD_2022-12-09_04:12:18.png">
+							<span>GNNHD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1191" class="channels" data-name="akash television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/AKASH_TELEVISION_2021-05-03_11:05:55.png">
+							<span>AKASH TELEVISION</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1267" class="channels" data-name="a1 tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/A1_TV_2021-05-03_11:05:29.png">
+							<span>A1 TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1229" class="channels" data-name="subhayatra tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/KARUWA_TV_2021-01-26_04:01:23.jpg">
+							<span>Subhayatra TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1282" class="channels" data-name="saptarangi">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Saptarangi_2021-05-03_11:05:15.png">
+							<span>Saptarangi</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1237" class="channels" data-name="red tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/RED_TV_2020-11-02_12:11:43.png">
+							<span>Red TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="534" class="channels" data-name="yes tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Yes_Tv__2018-01-11_10:01:07.png">
+							<span>YES TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1202" class="channels" data-name="gorkha tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Gorkha_TV_HD_2020-11-02_03:11:01.jpg">
+							<span>Gorkha TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1262" class="channels" data-name="indreni tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/INDRENI_TV_2020-11-02_12:11:19.jpg">
+							<span>Indreni TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1265" class="channels" data-name="prithivi tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Prithivi_TV_2020-11-04_11:11:14.png">
+							<span>Prithivi TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1309" class="channels" data-name="m star">
+							<img src="https://nettv1.nettv.com.np//channel_logo/M_Star_2021-01-26_09:01:52.jpg">
+							<span>M Star</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1324" class="channels" data-name="bijaykilla hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BIJAYKILLA_HD_2021-05-04_02:05:00.png">
+							<span>Bijaykilla HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1342" class="channels" data-name="siddhababa">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Siddhababa_2021-07-09_10:07:00.png">
+							<span>Siddhababa</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1345" class="channels" data-name="janaki tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Janaki_TV_HD_2021-07-09_10:07:36.png">
+							<span>Janaki TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1348" class="channels" data-name="tilotamma hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Tilotamma_HD_2023-08-23_11:08:46.png">
+							<span>Tilotamma HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1364" class="channels" data-name="devdaha tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Devdaha_TV_2021-12-17_10:12:02.png">
+							<span>Devdaha TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1351" class="channels" data-name="city one hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/City_One_HD_2021-09-20_06:09:13.png">
+							<span>City One HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1354" class="channels" data-name="samata tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Samata_TV_2021-09-20_06:09:29.png">
+							<span>Samata TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1367" class="channels" data-name="pokhara tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Pokhara_TV_HD_2022-01-12_11:01:08.png">
+							<span>Pokhara TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1384" class="channels" data-name="earth news hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Earth_News_HD_2022-08-18_10:08:08.png">
+							<span>Earth News HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1394" class="channels" data-name="satya tathya tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Satya_Tathya_TV_2023-03-30_05:03:14.png">
+							<span>Satya Tathya TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1408" class="channels" data-name="sarokar tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sarokar_TV_2024-01-14_12:01:03.png">
+							<span>Sarokar TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1399" class="channels" data-name="sanghu tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sanghu_TV_HD_2023-07-16_11:07:20.png">
+							<span>Sanghu TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="351" class="channels" data-name="al jazeera hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Al_Jazeera_HD_2021-05-05_08:05:14.png">
+							<span>Al Jazeera HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="496" class="channels" data-name="trt world hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TRT_WORLD_HD_2021-05-05_08:05:19.png">
+							<span>TRT World HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="436" class="channels" data-name="france 24 english hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/France_24_English_HD_2021-05-05_08:05:09.png">
+							<span>France 24 English HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="386" class="channels" data-name="news asia hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/News_Asia_HD_2021-05-05_08:05:54.png">
+							<span>News Asia HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="461" class="channels" data-name="rt english hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/RT_English_HD_2021-05-05_08:05:21.png">
+							<span>RT English HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="907" class="channels" data-name="times now hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Times_Now_HD_2021-05-05_07:05:38.png">
+							<span>Times Now HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="973" class="channels" data-name="cgtn hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CGTN_HD_2021-05-05_06:05:03.png">
+							<span>CGTN HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="479" class="channels" data-name="bbc news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BBC_News_2021-05-05_08:05:16.png">
+							<span>BBC News</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="395" class="channels" data-name="cnn">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CNN_2021-05-05_08:05:27.png">
+							<span>CNN</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="474" class="channels" data-name="euro news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Euro_News_2022-03-10_10:03:26.png">
+							<span>Euro News</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="676" class="channels" data-name="republic tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Republic_TV_2018-05-09_02:05:28.jpg">
+							<span>REPUBLIC TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="389" class="channels" data-name="news x ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/News_X_HD_2018-08-15_03:08:10.png">
+							<span>News X </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="982" class="channels" data-name="ptv world">
+							<img src="https://nettv1.nettv.com.np//channel_logo/PTV_WORLD_2019-02-17_06:02:52.png">
+							<span>PTV WORLD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="988" class="channels" data-name="ndtv 24x7">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NDTV_24x7_2019-02-27_05:02:16.png">
+							<span>NDTV 24x7</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="391" class="channels" data-name="aajtak ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/391.png">
+							<span>Aajtak </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="218" class="channels" data-name="abp news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ABP_News_2021-05-04_02:05:40.png">
+							<span>ABP News</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="393" class="channels" data-name="news18 india">
+							<img src="https://nettv1.nettv.com.np//channel_logo/News18_India_2021-05-30_07:05:00.jpg">
+							<span>News18 India</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="319" class="channels" data-name="zee news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_News_2025-06-10_12:06:41.png">
+							<span>Zee News</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="388" class="channels" data-name="india news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/388.png">
+							<span>India News</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="392" class="channels" data-name="india tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/392.png">
+							<span>India TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="558" class="channels" data-name="dd news hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DD_NEWS_2018-02-05_06:02:56.png">
+							<span>DD NEWS HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="568" class="channels" data-name="ary news">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_News_2018-01-31_12:01:29.jpg">
+							<span>ARY NEWS</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="446" class="channels" data-name="sahara shamay">
+							<img src="https://nettv1.nettv.com.np//channel_logo/446.gif">
+							<span>Sahara Shamay</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="309" class="channels" data-name="zee business">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Business_2021-05-05_08:05:05.png">
+							<span>Zee Business</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="556" class="channels" data-name="dd kishan">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DD_KISHAN_2018-01-25_04:01:53.jpg">
+							<span>DD KISHAN</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="991" class="channels" data-name="ndtv india">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NDTV_INDIA_2019-02-27_05:02:31.png">
+							<span>NDTV INDIA</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="994" class="channels" data-name="ndtv profit">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NDTV_Profit_2019-02-27_05:02:49.png">
+							<span>NDTV Profit</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="425" class="channels" data-name="sony entertainment hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Entertainment_HD_2022-11-06_09:11:07.png">
+							<span>Sony Entertainment HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="243" class="channels" data-name="colors hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Colors_HD_2022-03-10_10:03:51.png">
+							<span>Colors HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="341" class="channels" data-name="zee tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_TV_HD_2025-06-10_12:06:59.png">
+							<span>Zee TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="358" class="channels" data-name="star plus hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Plus_HD_2021-05-05_08:05:40.png">
+							<span>Star Plus HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="343" class="channels" data-name="and tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/AND_TV_HD_2025-06-10_12:06:47.png">
+							<span>AND TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="371" class="channels" data-name="star bharat hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Bharat_HD_2021-05-05_08:05:27.png">
+							<span>Star Bharat HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="916" class="channels" data-name="sony sab hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Sab_HD_2022-11-06_09:11:49.png">
+							<span>Sony Sab HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="370" class="channels" data-name="star world hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_World_HD_2018-08-15_03:08:59.png">
+							<span>Star World HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="348" class="channels" data-name="zee cafe hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Cafe_HD_2025-06-10_12:06:19.png">
+							<span>Zee Cafe HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="784" class="channels" data-name="colors infinity hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/COLORS_INFINITY_HD_2019-01-29_05:01:26.png">
+							<span>COLORS INFINITY HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="904" class="channels" data-name="star life hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Fox_Life_HD_2022-03-10_10:03:23.png">
+							<span>Star Life HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1227" class="channels" data-name="disney international hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Disney_International_HD_2021-05-03_11:05:15.png">
+							<span>Disney International HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1259" class="channels" data-name="star plus">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Plus_2020-10-29_01:10:08.png">
+							<span>Star Plus</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1303" class="channels" data-name="star bharat">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Bharat_2021-01-20_07:01:58.jpg">
+							<span>Star Bharat</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="349" class="channels" data-name="comedy central">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Comedy_Central_2022-03-10_10:03:49.png">
+							<span>Comedy Central</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="302" class="channels" data-name="axn">
+							<img src="https://nettv1.nettv.com.np//channel_logo/302.png">
+							<span>AXN</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1256" class="channels" data-name="colors infinity ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Colors_Infinity__2020-10-29_01:10:38.png">
+							<span>Colors Infinity </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1250" class="channels" data-name="colors sd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Colors_SD_2020-10-25_08:10:28.png">
+							<span>Colors SD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="279" class="channels" data-name="sony entertainment">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Entertainment_2023-05-29_04:05:28.png">
+							<span>Sony Entertainment</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="406" class="channels" data-name="sony sab">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Sab_2021-05-05_08:05:26.png">
+							<span>Sony Sab</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="253" class="channels" data-name="sony pal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Pal_2021-05-05_08:05:16.png">
+							<span>Sony Pal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="468" class="channels" data-name="zee anmol">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ZEE_Anmol_2020-10-24_08:10:24.png">
+							<span>ZEE Anmol</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="332" class="channels" data-name="star utsav">
+							<img src="https://nettv1.nettv.com.np//channel_logo/332.png">
+							<span>Star Utsav</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="554" class="channels" data-name="dd national hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DD_NATIONAL_2018-01-25_04:01:48.jpg">
+							<span>DD NATIONAL HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1167" class="channels" data-name="dd bharati">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DD_Bharati_2020-03-30_11:03:16.jpg">
+							<span>DD Bharati</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="724" class="channels" data-name="dangal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Dangal_2018-05-27_04:05:38.png">
+							<span>DANGAL</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="444" class="channels" data-name="sahara one">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sahara_One_2018-08-14_04:08:44.png">
+							<span>Sahara One</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="499" class="channels" data-name="hum sitaray">
+							<img src="https://nettv1.nettv.com.np//channel_logo/499.jpg">
+							<span>Hum Sitaray</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="574" class="channels" data-name="ary family">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_Family_2018-01-31_12:01:02.jpg">
+							<span>ARY FAMILY</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="570" class="channels" data-name="ary zindagi">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_Zindagi_2018-01-31_12:01:56.jpg">
+							<span>ARY ZINDAGI</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="572" class="channels" data-name="ary digital">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_Digital_2018-01-31_12:01:18.jpg">
+							<span>ARY DIGITAL</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="673" class="channels" data-name="colors rishtey">
+							<img src="https://nettv1.nettv.com.np//channel_logo/RISHTEY_2021-05-05_08:05:08.png">
+							<span>Colors Rishtey</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="375" class="channels" data-name="anjan tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/375.png">
+							<span>Anjan TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="964" class="channels" data-name="star jalsha">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Jalsha_2019-02-11_11:02:57.png">
+							<span>Star Jalsha</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="967" class="channels" data-name="ptc punjabi">
+							<img src="https://nettv1.nettv.com.np//channel_logo/PTC_Punjabi_2019-02-07_12:02:16.png">
+							<span>PTC Punjabi</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1000" class="channels" data-name="ndtv good times">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NDTV_Good_Times_2019-02-27_05:02:45.png">
+							<span>NDTV Good Times</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="426" class="channels" data-name="hbo hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/HBO_HD_2021-05-05_08:05:02.png">
+							<span>HBO HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="363" class="channels" data-name="hbo signature hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/HBO_Signature_HD_2021-05-05_08:05:16.png">
+							<span>HBO Signature HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="362" class="channels" data-name="hbo family hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/HBO_Family_HD_2021-05-05_08:05:36.png">
+							<span>HBO Family HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="361" class="channels" data-name="hbo hits hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/HBO_Hits_HD_2021-05-05_08:05:51.png">
+							<span>HBO Hits HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="427" class="channels" data-name="cinemax hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CINEMAX_HD_2021-05-05_08:05:41.png">
+							<span>Cinemax HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1164" class="channels" data-name="cinemaworld">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CinemaWorld_2020-03-11_04:03:06.jpg">
+							<span>CinemaWorld</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1285" class="channels" data-name="star movies hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Movies_HD_2020-12-17_10:12:31.png">
+							<span>Star Movies HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1288" class="channels" data-name="star movies select hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Movies_Select_HD_2020-12-18_09:12:58.png">
+							<span>Star Movies Select HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="919" class="channels" data-name="sony max hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Max_HD_2022-11-06_09:11:22.png">
+							<span>Sony Max HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="787" class="channels" data-name="color cineplex hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/COLORS_CINEPLEX_HD_2021-05-05_08:05:36.png">
+							<span>Color Cineplex HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="344" class="channels" data-name="and pictures hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/AND_Pictures_HD_2025-06-10_12:06:15.png">
+							<span>AND Pictures HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="359" class="channels" data-name="star gold hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Gold_HD_2022-03-10_10:03:11.png">
+							<span>Star Gold HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="342" class="channels" data-name="zee cinema hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Cinema_HD_2025-06-10_12:06:38.png">
+							<span>Zee Cinema HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="483" class="channels" data-name="star gold select hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Gold_Select_HD_2021-05-05_08:05:46.png">
+							<span>Star Gold Select HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1306" class="channels" data-name="star movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Movies_2021-01-20_07:01:12.jpg">
+							<span>Star Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1253" class="channels" data-name="star gold">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Gold_2020-10-29_01:10:12.png">
+							<span>Star Gold</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1129" class="channels" data-name="b4u kadak">
+							<img src="https://nettv1.nettv.com.np//channel_logo/B4U_Kadak_2019-12-18_04:12:12.png">
+							<span>B4U Kadak</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1217" class="channels" data-name="b4u movies apac">
+							<img src="https://nettv1.nettv.com.np//channel_logo/B4U_Movies_APAC_2020-07-05_02:07:10.png">
+							<span>B4U Movies APAC</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="331" class="channels" data-name="and pictures">
+							<img src="https://nettv1.nettv.com.np//channel_logo/AND_Pictures_2025-06-10_12:06:46.png">
+							<span>AND Pictures</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="280" class="channels" data-name="sony max">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Max_2022-11-06_09:11:13.png">
+							<span>Sony Max</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="308" class="channels" data-name="zee bollywood">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Bollywood_2025-06-10_12:06:45.png">
+							<span>Zee Bollywood</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="373" class="channels" data-name="star gold 2">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Gold_2_2021-05-05_08:05:29.png">
+							<span>Star Gold 2</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="317" class="channels" data-name="sony max 2">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Max_2_2022-11-06_09:11:55.png">
+							<span>Sony Max 2</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="374" class="channels" data-name="star gold select">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Gold_Select_2022-03-10_10:03:42.png">
+							<span>Star Gold Select</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="303" class="channels" data-name="zee action">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Action_2025-06-10_12:06:22.png">
+							<span>Zee Action</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="321" class="channels" data-name="b4u movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/321.png">
+							<span>B4U Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="418" class="channels" data-name="sony pix">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Pix_2022-11-06_09:11:54.png">
+							<span>Sony Pix</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="379" class="channels" data-name="wb">
+							<img src="https://nettv1.nettv.com.np//channel_logo/379.png">
+							<span>WB</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="313" class="channels" data-name="lotus macau hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Lotus_Macau_HD_2021-05-05_08:05:41.png">
+							<span>Lotus Macau HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="455" class="channels" data-name="cinema tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Cinema_TV_2019-10-24_10:10:22.png">
+							<span>Cinema TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="616" class="channels" data-name="filmy">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Filmy_2018-03-05_11:03:56.png">
+							<span>FILMY</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="466" class="channels" data-name="bhojpuri cinema">
+							<img src="https://nettv1.nettv.com.np//channel_logo/466.png">
+							<span>Bhojpuri Cinema</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="439" class="channels" data-name="dabangg">
+							<img src="https://nettv1.nettv.com.np//channel_logo/439.png">
+							<span>Dabangg</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="462" class="channels" data-name="manoranjan tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Manoranjan_TV_2018-02-05_06:02:31.png">
+							<span>Manoranjan TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="463" class="channels" data-name="enterr10 movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Enterr10_Movies_2020-10-02_05:10:58.png">
+							<span>Enterr10 Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="464" class="channels" data-name="star utsav movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Utsav_Movies_2021-05-05_08:05:55.png">
+							<span>Star Utsav Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="416" class="channels" data-name="utv movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/416.png">
+							<span>UTV Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="432" class="channels" data-name="house full movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/432.png">
+							<span>HOUSE FULL MOVIES</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="952" class="channels" data-name="manoranjan movies">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Manoranjan_Movies_2019-02-03_01:02:31.png">
+							<span>Manoranjan Movies</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="316" class="channels" data-name="zee classic">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_Classic_2025-06-10_12:06:01.png">
+							<span>Zee Classic</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1411" class="channels" data-name="sports18">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sports18_2024-08-18_11:08:10.png">
+							<span>Sports18</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="346" class="channels" data-name="sony sports ten 1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_1_HD_2022-11-06_09:11:20.png">
+							<span>Sony Sports Ten 1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="661" class="channels" data-name="sony sports ten 2 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_2_HD_2022-11-06_09:11:37.png">
+							<span>Sony Sports Ten 2 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="739" class="channels" data-name="sony sports ten 3 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_3_HD_2022-11-06_09:11:56.png">
+							<span>Sony Sports Ten 3 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="412" class="channels" data-name="sony sports ten 5 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_5_HD_2022-11-06_09:11:31.png">
+							<span>Sony Sports Ten 5 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="694" class="channels" data-name="sony espn hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/SONY_ESPN_HD_2018-08-15_03:08:06.png">
+							<span>SONY ESPN HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="365" class="channels" data-name="star sports 1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_1_HD_2021-05-05_08:05:14.png">
+							<span>Star Sports 1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="366" class="channels" data-name="star sports 2 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_2_HD_2021-05-05_08:05:28.png">
+							<span>Star Sports 2 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="367" class="channels" data-name="star sports 1 hd hindi">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_1_HD_Hindi_2022-03-10_10:03:52.png">
+							<span>Star Sports 1 HD Hindi</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="398" class="channels" data-name="star sports select 1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_Select_1_HD_2021-05-05_08:05:25.png">
+							<span>Star Sports Select 1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="397" class="channels" data-name="star sports select 2 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_Select_2_HD_2021-05-05_08:05:44.png">
+							<span>Star Sports Select 2 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="502" class="channels" data-name="star sports select 1 sd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_Select_1_sd_2021-05-05_08:05:39.png">
+							<span>Star Sports Select 1 sd</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="469" class="channels" data-name="star sports select 2 ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_Select_2__2018-09-23_01:09:15.jpg">
+							<span>Star Sports Select 2 </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="576" class="channels" data-name="setanta hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/SETANTA_SPORTS_ASIA_HD_2018-08-15_03:08:43.png">
+							<span>Setanta HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="622" class="channels" data-name="1 sports">
+							<img src="https://nettv1.nettv.com.np//channel_logo/1_Sports_2020-07-26_01:07:38.png">
+							<span>1 Sports</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="298" class="channels" data-name="sony sports ten 1">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_1_2023-05-29_04:05:58.png">
+							<span>Sony Sports Ten 1</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="299" class="channels" data-name="sony sports ten 2">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_2_2023-05-29_04:05:18.png">
+							<span>Sony Sports Ten 2</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="336" class="channels" data-name="sony sports ten 3">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_3_2023-05-29_04:05:36.png">
+							<span>Sony Sports Ten 3</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="242" class="channels" data-name="sony sports ten 5 ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_Ten_5__2023-05-29_04:05:53.png">
+							<span>Sony Sports Ten 5 </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="286" class="channels" data-name="sony espn">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_ESPN_2018-08-15_03:08:31.png">
+							<span>Sony ESPN</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="399" class="channels" data-name="star sports 1 sd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_1_2021-05-05_08:05:08.png">
+							<span>Star Sports 1 SD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="522" class="channels" data-name="star sports 2 sd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/STAR_SPORTS_2_2021-05-05_08:05:13.png">
+							<span>Star Sports 2 SD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="946" class="channels" data-name="star sports 1hindi">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Star_Sports_1Hindi_2022-03-10_10:03:10.png">
+							<span>Star Sports 1Hindi</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="552" class="channels" data-name="dd sports">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DD_SPORTS_2021-05-05_08:05:53.png">
+							<span>DD Sports</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="979" class="channels" data-name="ptv sports">
+							<img src="https://nettv1.nettv.com.np//channel_logo/PTV_SPORTS_2019-02-17_05:02:48.png">
+							<span>PTV SPORTS</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1114" class="channels" data-name="action sports  hd 1">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Action_Sports__HD_1_2021-09-13_10:09:21.jpg">
+							<span>Action Sports  HD 1</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1391" class="channels" data-name="a sports hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/A_Sports_HD_2023-02-05_04:02:30.png">
+							<span>A Sports HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="748" class="channels" data-name="j music hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/J_Music_HD_2018-08-14_04:08:48.png">
+							<span>J MUSIC HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="599" class="channels" data-name="nat geo music hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nat_Geo_Music_HD_2018-02-14_09:02:16.png">
+							<span>NAT GEO MUSIC HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="248" class="channels" data-name="vh1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/VH1_HD_2019-04-03_05:04:40.png">
+							<span>VH1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1337" class="channels" data-name="mtv hd +">
+							<img src="https://nettv1.nettv.com.np//channel_logo/MTV_HD_+_2021-06-13_06:06:41.jpg">
+							<span>MTV HD +</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1018" class="channels" data-name="mtv beats hd ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/MTV_Beats_HD__2022-03-10_10:03:54.png">
+							<span>MTV Beats HD </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1057" class="channels" data-name="m tunes plus">
+							<img src="https://nettv1.nettv.com.np//channel_logo/M_Tunes_Plus_2022-03-10_10:03:21.png">
+							<span>M Tunes Plus</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="970" class="channels" data-name="b4u music apac">
+							<img src="https://nettv1.nettv.com.np//channel_logo/B4U_Music_APAC_2022-02-22_06:02:56.jpg">
+							<span>B4U Music APAC</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1021" class="channels" data-name="vh1 ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/VH1__2022-03-10_10:03:51.png">
+							<span>VH1 </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="440" class="channels" data-name="9x o">
+							<img src="https://nettv1.nettv.com.np//channel_logo/9X_O_2018-02-05_06:02:57.png">
+							<span>9X O</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="231" class="channels" data-name="9x tashan">
+							<img src="https://nettv1.nettv.com.np//channel_logo/9X_Tashan_2019-09-15_01:09:34.jpg">
+							<span>9X Tashan</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="304" class="channels" data-name="9x jalwa">
+							<img src="https://nettv1.nettv.com.np//channel_logo/304.png">
+							<span>9x Jalwa</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="311" class="channels" data-name="b4u music">
+							<img src="https://nettv1.nettv.com.np//channel_logo/311.png">
+							<span>B4U Music</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="477" class="channels" data-name="mastiii">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Mastiii_2018-01-08_04:01:54.png">
+							<span>MASTIII</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="249" class="channels" data-name="mtv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/MTV_2020-11-02_12:11:00.png">
+							<span>MTV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="245" class="channels" data-name="sony mix">
+							<img src="https://nettv1.nettv.com.np//channel_logo/245.png">
+							<span>Sony MIX</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="315" class="channels" data-name="zee etc bollywood">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zee_ETC_Bollywood_2019-08-07_05:08:45.png">
+							<span>Zee ETC Bollywood</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="655" class="channels" data-name="zing">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ZING_2021-05-05_08:05:47.png">
+							<span>Zing</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="232" class="channels" data-name="zoom">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Zoom_2021-05-05_08:05:36.png">
+							<span>Zoom</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="452" class="channels" data-name="e 24">
+							<img src="https://nettv1.nettv.com.np//channel_logo/452.png">
+							<span>E 24</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1147" class="channels" data-name="i love ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/I_Love__2020-01-12_02:01:21.png">
+							<span>I Love </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="566" class="channels" data-name="ary musik">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_Musik_2018-01-31_12:01:53.png">
+							<span>ARY Musik</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="868" class="channels" data-name="insync">
+							<img src="https://nettv1.nettv.com.np//channel_logo/INSYNC_2018-11-23_05:11:38.png">
+							<span>INSYNC</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="465" class="channels" data-name="sangeet bhojpuri">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sangeet_Bhojpuri_2018-02-05_06:02:01.png">
+							<span>Sangeet Bhojpuri</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="417" class="channels" data-name="bindass">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bindass_2020-05-21_11:05:39.jpg">
+							<span>Bindass</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="913" class="channels" data-name="cbeebies hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CBeebies_Asia_HD_2018-12-30_05:12:45.png">
+							<span>CBeebies HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="596" class="channels" data-name="baby tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BABY_TV_HD_2018-08-15_11:08:33.png">
+							<span>BABY TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="540" class="channels" data-name="nickelodeon hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NICKELODEON_HD_2018-08-15_04:08:37.png">
+							<span>NICKELODEON HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="394" class="channels" data-name="cartoon network">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Cartoon_Network_2018-08-15_11:08:44.png">
+							<span>Cartoon Network</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="246" class="channels" data-name="nick jr">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nick_Jr_2021-05-05_08:05:12.png">
+							<span>Nick Jr</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1298" class="channels" data-name="hungama tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Hungama_TV_2021-01-13_09:01:15.png">
+							<span>Hungama TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="940" class="channels" data-name="nick india">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nick_India_2021-05-05_07:05:02.png">
+							<span>Nick India</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="413" class="channels" data-name="super hungama">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Super_Hungama_2022-03-07_06:03:52.jpg">
+							<span>Super Hungama</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="415" class="channels" data-name="disney junior">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Disney_Junior_2021-05-05_08:05:31.png">
+							<span>Disney Junior</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="414" class="channels" data-name="disney channel">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Disney_Channel_2021-05-05_08:05:54.png">
+							<span>Disney Channel</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1110" class="channels" data-name="discovery kids">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Discovery_Kids_2019-11-06_08:11:28.png">
+							<span>Discovery Kids</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1126" class="channels" data-name="lolly kids hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Lolly_Kids_2019-12-18_01:12:28.png">
+							<span>Lolly Kids HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1294" class="channels" data-name="sonic nickelodeon">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nickelodeon_Sonic_2021-01-05_05:01:29.png">
+							<span>Sonic Nickelodeon</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="380" class="channels" data-name="pogo">
+							<img src="https://nettv1.nettv.com.np//channel_logo/380.png">
+							<span>Pogo</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="593" class="channels" data-name="nat geo people hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NAT_GEO_PEOPLE_HD_2018-08-15_03:08:21.png">
+							<span>NAT GEO PEOPLE HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="580" class="channels" data-name="nat geo wild hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NAT_GEO_WILD_HD_2021-05-05_08:05:28.png">
+							<span>NAT GEO WILD HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="381" class="channels" data-name="animal planet hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Animal_Planet_HD_2022-03-10_10:03:16.png">
+							<span>Animal Planet HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="396" class="channels" data-name="nat geo  hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Nat_Geo__HD_2021-05-05_08:05:05.png">
+							<span>Nat Geo  HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="387" class="channels" data-name="discovery hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Discovery_HD_2022-03-10_10:03:42.png">
+							<span>Discovery HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="383" class="channels" data-name="tlc hd world">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TLC_HD_World_2021-05-05_08:05:00.png">
+							<span>TLC HD World</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="934" class="channels" data-name="sony bbc earth hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sony_BBC_Earth_HD_2021-05-05_07:05:50.png">
+							<span>Sony BBC Earth HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1334" class="channels" data-name="history tv 18 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/History_TV_18_HD_2021-06-13_06:06:47.png">
+							<span>History TV 18 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="976" class="channels" data-name="cgtn documentary hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/CGTN_Documentary_HD_2021-05-05_06:05:59.png">
+							<span>CGTN Documentary HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1300" class="channels" data-name="national geographic">
+							<img src="https://nettv1.nettv.com.np//channel_logo/National_Geographic_2021-01-19_07:01:27.png">
+							<span>National Geographic</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="251" class="channels" data-name="history tv 18">
+							<img src="https://nettv1.nettv.com.np//channel_logo/History_TV_18_2021-05-05_08:05:45.png">
+							<span>History TV 18</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="471" class="channels" data-name=" sony bbc earth">
+							<img src="https://nettv1.nettv.com.np//channel_logo/471.jpg">
+							<span> Sony BBC Earth</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="384" class="channels" data-name="discovery turbo">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Discovery_Turbo_2021-05-05_08:05:35.png">
+							<span>Discovery Turbo</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="925" class="channels" data-name="investigation discovery">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Investigation_Discovery_2020-06-26_11:06:00.png">
+							<span>Investigation Discovery</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="928" class="channels" data-name="discovery channel">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Discovery_Channel_2023-07-25_05:07:49.jpg">
+							<span>Discovery Channel</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="931" class="channels" data-name="tlc india">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TLC_India_2019-01-08_11:01:24.png">
+							<span>TLC India</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1402" class="channels" data-name="animal planet">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Animal_Planet_2023-07-25_05:07:30.jpg">
+							<span>Animal Planet</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1405" class="channels" data-name="discovery science">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Discovery_Science_2023-08-02_01:08:38.jpg">
+							<span>Discovery Science</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="922" class="channels" data-name="kangba tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sichuan_Kangba_Tibetan_TV_2019-01-05_05:01:55.png">
+							<span>Kangba TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="820" class="channels" data-name="abc australia">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ABC_Australia_Asia_2018-09-09_01:09:55.jpg">
+							<span>ABC Australia</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="350" class="channels" data-name="nhk world hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NHK_World_HD_2021-05-05_08:05:07.png">
+							<span>NHK World HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="327" class="channels" data-name="nhk premium hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/NHK_Premium_HD_2021-05-05_08:05:07.png">
+							<span>NHK Premium HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="339" class="channels" data-name="arirang hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Arirang_HD_2021-05-05_08:05:19.png">
+							<span>Arirang HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="266" class="channels" data-name="dw-tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DW-TV_HD_2021-05-05_08:05:32.png">
+							<span>DW-TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="811" class="channels" data-name="xizang tv tibetan">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Xizang_TV_Tibetan_2018-08-29_05:08:52.png">
+							<span>Xizang TV Tibetan</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="808" class="channels" data-name="xizang tv chinese">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Xizang_TV_Chinese_2018-08-29_05:08:25.png">
+							<span>Xizang TV Chinese</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="839" class="channels" data-name="cuba vision">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Cubavision_International	_2018-10-03_11:10:55.png">
+							<span>Cuba Vision</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="829" class="channels" data-name="tve internacional">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TVE_Internacional_2018-09-28_08:09:07.png">
+							<span>TVE Internacional</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="546" class="channels" data-name="bbs">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BBS_2018-01-23_07:01:26.png">
+							<span>BBS</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="548" class="channels" data-name="bbs 2">
+							<img src="https://nettv1.nettv.com.np//channel_logo/BBS_2_2018-01-23_07:01:09.jpg">
+							<span>BBS 2</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1039" class="channels" data-name="gtv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/GTV_2019-05-05_09:05:54.png">
+							<span>GTV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="378" class="channels" data-name="hum masala">
+							<img src="https://nettv1.nettv.com.np//channel_logo/378.png">
+							<span>Hum Masala</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="847" class="channels" data-name=" akash bangla">
+							<img src="https://nettv1.nettv.com.np//channel_logo/_Akash_Bangla_2018-10-30_11:10:59.png">
+							<span> Akash Bangla</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="291" class="channels" data-name="tv 5 monde">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TV_5_Monde_2022-03-10_10:03:10.png">
+							<span>TV 5 Monde</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="435" class="channels" data-name="fashion tv asia hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Fashion_TV_Asia_HD_2021-05-05_08:05:19.png">
+							<span>Fashion TV Asia HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="877" class="channels" data-name="ua tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/UA_TV_2018-12-02_05:12:45.png">
+							<span>UA TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="880" class="channels" data-name="kbs korea">
+							<img src="https://nettv1.nettv.com.np//channel_logo/KBS_Korea_2021-10-21_07:10:19.jpg">
+							<span>KBS Korea</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="507" class="channels" data-name="voa hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/VOA_ASIA_2017-12-20_03:12:00.png">
+							<span>VOA HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="239" class="channels" data-name="bhakti darshan">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Bhakti_Darshan_2021-05-05_08:05:16.png">
+							<span>Bhakti Darshan</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="490" class="channels" data-name="divya darshan hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Divya_Darshan_HD_2022-03-10_10:03:37.png">
+							<span>Divya Darshan HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1157" class="channels" data-name="deep tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DEEP_TV_2020-01-29_11:01:20.jpg">
+							<span>Deep TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1291" class="channels" data-name="dharma television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DHARMA_Television_2020-12-27_06:12:40.png">
+							<span>Dharma Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1015" class="channels" data-name="omkar television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Omkar_Television_2021-05-05_06:05:21.png">
+							<span>Omkar Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="408" class="channels" data-name="satsang">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Satsang_2021-05-05_08:05:03.png">
+							<span>Satsang</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="448" class="channels" data-name="shadhna ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Shadhna__2018-02-05_06:02:52.png">
+							<span>Shadhna </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="324" class="channels" data-name="aastha">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Aastha_2022-03-10_10:03:59.png">
+							<span>Aastha</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="230" class="channels" data-name="sanskar tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Sanskar_TV_2021-05-05_08:05:57.png">
+							<span>Sanskar TV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="430" class="channels" data-name="peace of mind">
+							<img src="https://nettv1.nettv.com.np//channel_logo/PEACE_OF_MIND_2021-05-05_08:05:39.png">
+							<span>Peace of Mind</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="424" class="channels" data-name="peace tv urdu hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Peace_Tv_Urdu_2021-05-05_08:05:34.png">
+							<span>Peace TV Urdu HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="487" class="channels" data-name="madani channel">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Madani_Channel_2021-05-05_08:05:11.png">
+							<span>Madani Channel</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="560" class="channels" data-name="daystar television">
+							<img src="https://nettv1.nettv.com.np//channel_logo/DAYSTAR_2021-05-05_08:05:14.png">
+							<span>Daystar Television</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="564" class="channels" data-name="tbn asia">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TBN_ASIA_2018-01-31_10:01:30.png">
+							<span>TBN ASIA</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="853" class="channels" data-name="angel tv hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Angel_TV_India_2018-11-02_02:11:59.png">
+							<span>Angel TV HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1182" class="channels" data-name="wow ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/WOW__2020-04-06_01:04:55.png">
+							<span>WOW </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1177" class="channels" data-name="cinemachi hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Cinemachi_HD_2020-04-06_01:04:25.png">
+							<span>Cinemachi HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1187" class="channels" data-name="health and wellness  hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Health_and_Wellness__HD_2020-04-06_01:04:26.png">
+							<span>Health and Wellness  HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1172" class="channels" data-name="smile ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Smile__2020-04-06_01:04:24.jpg">
+							<span>Smile </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="326" class="channels" data-name="go to luxe tv ">
+							<img src="https://nettv1.nettv.com.np//channel_logo/GO_TO_LUXE_TV__2021-05-05_08:05:37.png">
+							<span>GO TO LUXE TV </span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="826" class="channels" data-name="tv trishuli">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TV_TRISHULI_2018-09-28_05:09:16.png">
+							<span>TV TRISHULI</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1339" class="channels" data-name="test1">
+							<img src="https://nettv1.nettv.com.np//channel_logo/default_livetv.png">
+							<span>test1</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="610" class="channels" data-name="test">
+							<img src="https://nettv1.nettv.com.np//channel_logo/test_2020-12-21_05:12:46.png">
+							<span>test</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1375" class="channels" data-name="test select hd 2">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TEST_SELECT_HD_2_2022-02-10_10:02:49.jpg">
+							<span>TEST SELECT HD 2</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1372" class="channels" data-name="test ten 1 hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/TEST_TEN_1_HD_2022-02-10_10:02:34.jpg">
+							<span>TEST TEN 1 HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="997" class="channels" data-name="gandaki tv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Gandaki_Tv_2019-02-27_04:02:19.png">
+							<span>Gandaki Tv</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1276" class="channels" data-name="itv nepal">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ITV_NEPAL_2020-12-02_09:12:13.jpg">
+							<span>ITV Nepal</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1120" class="channels" data-name="travel xp hd">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Travel_XP_HD_2019-12-08_07:12:12.png">
+							<span>Travel XP HD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="325" class="channels" data-name="food food">
+							<img src="https://nettv1.nettv.com.np//channel_logo/FOOD_FOOD_2019-09-15_01:09:10.jpg">
+							<span>FOOD FOOD</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="619" class="channels" data-name="ary qtv">
+							<img src="https://nettv1.nettv.com.np//channel_logo/ARY_QTV_2018-03-08_11:03:18.jpg">
+							<span>ARY QTV</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="528" class="channels" data-name="god tv asia">
+							<img src="https://nettv1.nettv.com.np//channel_logo/GOD_TV_ASIA_2018-01-03_04:01:34.png">
+							<span>GOD TV ASIA</span>
+						</a>
+					</li>
+										<li class="chindividual">
+						<a href="#" data-id="1084" class="channels" data-name="care world">
+							<img src="https://nettv1.nettv.com.np//channel_logo/Care_World_2019-09-15_11:09:13.jpg">
+							<span>Care World</span>
+						</a>
+					</li>
+									</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			filterText = "";
+			function loadPlayer(url){
+				var player = videojs('video');
+				player.play();
+			}
+			const script_URL="https://script.google.com/macros/s/AKfycbwaWs3_thxpxFGR2z54yJmfxNjLXYTLvgA5YQNlQMfwngCk7THLFZaxq-YqkSb0slUc/exec?q=GET_URL&id="
+			$(document).ready(function(){
+				$(".channels").click(function(){
+					$.get(script_URL+$(this).attr("data-id"),function(data){
+						var ua = navigator.userAgent.toLowerCase();
+						var isAndroid = ua.indexOf("android") > -1;
+						//$("#player").html('');
+						var video = $("#player video");
+						var player = videojs('video');
 
-<body>
-    <div id="div"></div>
-</body>
-<script>
-    let i = 0;
-    // function declairation
-    function checkOdd_Even() {
-        i++;
-        const input = (prompt('Enter a Number'));
-        const a = parseInt(input);
+						player.src({
+						  src: data.response, //"../huritv9/getlinkd.php?CHID="+$(this).attr("data-id"),
+						  type: 'application/x-mpegURL',
+						});
+						//if(isAndroid) {
+							video[0].addEventListener('click',function(){
+							  video[0].play();
+							},false);
+							video[0].addEventListener('canplay',function(){
+							  video[0].play();
+							},false);
+							/*$("#player").html('  <a href="vlc://'+data+'" style="float:right;font-size: 170px;"> Play on VLC </a>');
+							$("#player").css('text-align','center');*/
+						/*} else {
+							loadPlayer(data);
+						}*/
 
-        const div = document.getElementById("div");
+						$('body').scrollTop(0);
+					});
+					return false;
+				});
+				$("#channelFilter").on("keyup change blur",function(e){
+					if(e.keyCode==27){
+						$(this).val("");
+					}
+					filterChannel($(this).val());
+					if(e.keyCode==13){
+						$(".chindividual:visible:first a").click();
+					}
+				});
+				$(".channels:first").click();
 
-        if (input === null || input.length === 0) {
-            div.innerHTML = "<div>" + i + ". Prompt Canceled </div>" + div.innerHTML;
-        } else if (isNaN(a)) {
-            div.innerHTML = "<div>" + i + ". Invalid Number Entered - <strong>" + input + "</strong> is Not valid.</div>" + div.innerHTML;
-        } else if (a % 2 === 0) {
-            div.innerHTML = "<div>" + i + ".  <strong>" + a + "</strong> is Even Number.</div>" + div.innerHTML;
-        } else {
-            div.innerHTML = "<div>" + i + ".  <strong>" + a + "</strong> is Odd Number.</div>" + div.innerHTML;
-        }
+				$("body").on("keydown",function(){
+					$("#channelFilter").focus();
+				});
 
-    }
+				$("#toggle").click(function(){
+					if($("#pcontainer").hasClass("playerc")){
+						$("#pcontainer").removeClass("playerc");
+						$("#pcontainer").addClass("playerc_t");
+					} else {
+						$("#pcontainer").removeClass("playerc_t");
+						$("#pcontainer").addClass("playerc");
+					}
+				});
+				window.$grid = $(".chlist").isotope({
+					itemSelector: '.chindividual',
+					filter : function() {
+						return (filterText!="")?($(this).find("a").attr("data-name").indexOf(filterText.toLowerCase())!=-1):true;
+					}
+				});
+			});
 
-    // function Call
-    checkOdd_Even();
 
+			function filterChannel(filter){
+				filterText = filter;
+				window.$grid.isotope();
+				/*if(filter == ""){
+					$(".chindividual").show();
+					return;
+				}
+				$(".chindividual").each(function(){
+					if($(this).find("a").attr("data-name").indexOf(filter.toLowerCase())==-1){
+						$(this).hide();
+					} else {
+						$(this).show();
+					}
+				});*/
+			}
+		</script>
 
-    //adding event listener
-    document.getElementById('div').addEventListener('click', checkOdd_Even)
-</script>
-
+	</body>
 </html>
